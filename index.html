@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ContactMaster</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1 class="fade-in">📇 ContactMaster</h1>
+
+    <form method="POST" class="card slide-up">
+        <h3>Add Contact</h3>
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="phone" placeholder="Phone" required>
+        <input type="email" name="email" placeholder="Email">
+        <button type="submit" name="action" value="Add">Add</button>
+    </form>
+
+    <form method="POST" class="card slide-up">
+        <h3>Delete Contact</h3>
+        <input type="text" name="name" placeholder="Name" required>
+        <button type="submit" name="action" value="Delete">Delete</button>
+    </form>
+
+    <form method="POST" class="card slide-up">
+        <h3>Search Contact</h3>
+        <input type="text" name="search_query" placeholder="Name or Phone" required>
+        <button type="submit" name="action" value="Search">Search</button>
+    </form>
+
+    <h3 class="fade-in">All Contacts</h3>
+    <table class="zoom-in">
+        <tr><th>Name</th><th>Phone</th><th>Email</th></tr>
+        {% for c in contacts %}
+        <tr>
+            <td>{{ c.name }}</td>
+            <td>{{ c.phone }}</td>
+            <td>{{ c.email }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
