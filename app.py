@@ -42,7 +42,6 @@ def home():
             query = request.form.get("search_query", "").lower()
             contacts = [c for c in contacts if query in c["name"].lower() or query in c["phone"]]
 
-    # Load HTML file content
     with open("index.html", "r", encoding="utf-8") as file:
         html_content = file.read()
 
@@ -54,3 +53,4 @@ def css():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
